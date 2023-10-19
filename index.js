@@ -2,7 +2,11 @@ const express = require('express');
 const port = process.env.PORT || 4000;
 const app = express();
 const mongoose = require('mongoose'); 
+
 require('dotenv').config()
+
+
+
 const taskRoute = require('./routes/task');
 const authRoute = require('./routes/auth');
 
@@ -15,6 +19,7 @@ connect.then(() => {
 })
 
 app.use(express.json()); // Parse JSON requests
+app.use(express.urlencoded({ extended: false })); //
 
 app.use("/task", taskRoute); 
 app.use("/auth", authRoute);
