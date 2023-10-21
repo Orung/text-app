@@ -27,7 +27,7 @@ function adminOnly(req, res, next) {
     if(req.decode.role === 'admin') {
         next()
     }else {
-        res.status(401).send("You are not an admin")
+        res.status(401).send("action-not-allowed”")
     }
  
 }

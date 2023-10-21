@@ -72,7 +72,7 @@ route.patch('/:id', adminOnly, async (req, res) => {
 route.delete('/:id', adminOnly, async (req, res) => {
     const note = await taskCollection.findById(req.params.id);
     if (req.decode.userId !== note.user) {
-        res.status(401).send('You are not allowed to delete this note')
+        res.status(401).send('action-not-allowed”')
         return
     }
     await taskCollection.findByIdAndDelete(req.params.id);
