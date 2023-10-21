@@ -1,12 +1,20 @@
 const mongoose = require('mongoose');
 
 const taskSchema = new mongoose.Schema({
-    taskTitle: {
+    name: {
         type: String,
         required: true
     },
-    taskBody: {
+    description: {
         type: String,
+        required: true
+    },
+    price: {
+        type: Number,
+        required: true
+    },
+    isInStock: {
+        type: Boolean,
         required: true
     },
     user: {

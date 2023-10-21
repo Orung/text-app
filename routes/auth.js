@@ -15,7 +15,7 @@ router.post('/register', async (req, res) => {
     const hashPassword = bcrypt.hashSync(req.body.password, salt);
     await userCollection.create({
         fullName: req.body.fullName,
-        email: req.body.email,
+        username: req.body.username,
         password: hashPassword,
         role: req.body.role
 
@@ -25,7 +25,7 @@ router.post('/register', async (req, res) => {
 
 
 router.post('/login', async (req, res) => {
-    const userDetails = await userCollection.findOne({ email: req.body.email })
+    const userDetails = await userCollection.findOne({ username: req.body.email })
 
     if (!userDetails) return res.status(404).send('Not found')
 
@@ -33,7 +33,7 @@ router.post('/login', async (req, res) => {
 
     if (!checkPasswordMatch) return res.status(400).send('invalid credentials')
     const token = jwt.sign({
-        email: userDetails,
+        username: userDetails,
         userId: userDetails._id,
         role: userDetails.role
     }, process.env.secretKey)

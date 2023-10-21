@@ -7,7 +7,7 @@ require('dotenv').config()
 
 
 
-const taskRoute = require('./routes/task');
+const taskRoute = require('./routes/shopItems');
 const authRoute = require('./routes/auth');
 
 const connect = mongoose.connect(process.env.mongoDBURL)
@@ -21,7 +21,7 @@ connect.then(() => {
 app.use(express.json()); // Parse JSON requests
 app.use(express.urlencoded({ extended: false })); //
 
-app.use("/task", taskRoute); 
+app.use("/item", taskRoute); 
 app.use("/auth", authRoute);
 
 

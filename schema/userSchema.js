@@ -5,7 +5,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    email: {
+    username: {
+        type: String,
+        required: true
+    }, 
+    password: {
         type: String,
         required: true,
         unique: true
@@ -15,12 +19,7 @@ const userSchema = new mongoose.Schema({
         enum: ['user', 'admin'],
         default: 'user'
     },
-    password: {
-        type: String,
-        required: true,
-        unique: true
-    },
-
+    
 }, { timestamps: true })
 
 const userCollection = mongoose.model("User", userSchema);
