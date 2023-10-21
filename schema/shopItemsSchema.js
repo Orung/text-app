@@ -23,7 +23,7 @@ const taskSchema = new mongoose.Schema({
     }
 }, {timestamps: true});
 
-const taskCollection = mongoose.model("task_4", taskSchema); 
+const taskCollection = mongoose.model("shopItem", taskSchema); 
 
 module.exports = {
     taskCollection 

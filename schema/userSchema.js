@@ -7,12 +7,13 @@ const userSchema = new mongoose.Schema({
     },
     username: {
         type: String,
-        required: true
+        required: true,
+        unique: true
+
     }, 
     password: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     role: {
         type: String,
@@ -22,7 +23,7 @@ const userSchema = new mongoose.Schema({
     
 }, { timestamps: true })
 
-const userCollection = mongoose.model("User", userSchema);
+const userCollection = mongoose.model("user", userSchema);
 
 module.exports = {
     userCollection,
