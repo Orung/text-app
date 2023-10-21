@@ -25,7 +25,7 @@ router.post('/register', async (req, res) => {
 
 
 router.post('/login', async (req, res) => {
-    const userDetails = await userCollection.findOne({ username: req.body.email })
+    const userDetails = await userCollection.findOne({ username: req.body.username })
 
     if (!userDetails) return res.status(404).send('Not found')
 
